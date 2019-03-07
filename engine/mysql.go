@@ -11,12 +11,7 @@ type MySQL struct {
 }
 
 // NewMySQLEngine returns Mysql engine that knows how to truncate a table
-func NewMySQLEngine(dsn string) *MySQL {
-	db, err := sql.Open("mysql", dsn)
-	if err != nil {
-		panic(err)
-	}
-
+func NewMySQLEngine(db *sql.DB) *MySQL {
 	return &MySQL{
 		db: db,
 	}
